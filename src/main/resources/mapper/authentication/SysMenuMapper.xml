@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.framework.dao.authentication.SysMenuMapper">
+    <resultMap id="BaseResultMap" type="com.framework.entity.authentication.SysMenu">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="menu_name" jdbcType="VARCHAR" property="menuName"/>
+        <result column="menu_url" jdbcType="VARCHAR" property="menuUrl"/>
+        <result column="menu_type" jdbcType="VARCHAR" property="menuType"/>
+        <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+      id, menu_name, menu_url, menu_type, parent_id, create_time, update_time
+    </sql>
+  
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.framework.dao.movie.MovieMapper">
+    <resultMap id="BaseResultMap" type="com.framework.entity.movie.Movie">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="rate" jdbcType="CHAR" property="rate"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="movie_id" jdbcType="VARCHAR" property="movieId"/>
+        <result column="cover" jdbcType="VARCHAR" property="cover"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="director" jdbcType="VARCHAR" property="director"/>
+        <result column="screenwriter" jdbcType="VARCHAR" property="screenwriter"/>
+        <result column="starring" jdbcType="VARCHAR" property="starring"/>
+        <result column="movie_type" jdbcType="VARCHAR" property="movieType"/>
+        <result column="area" jdbcType="VARCHAR" property="area"/>
+        <result column="movie_language" jdbcType="VARCHAR" property="movieLanguage"/>
+        <result column="screened_date" jdbcType="VARCHAR" property="screenedDate"/>
+        <result column="movie_length" jdbcType="VARCHAR" property="movieLength"/>
+        <result column="movie_alias" jdbcType="VARCHAR" property="movieAlias"/>
+        <result column="movie_introduction" jdbcType="VARCHAR" property="movieIntroduction"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, rate, title, url, movie_id, cover, create_time, update_time, director, screenwriter, 
+        starring, movie_type, area, movie_language, screened_date, movie_length, movie_alias, movie_introduction
+    </sql>
+
+    <select id="selectByMovieId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from movie
+        where movie_id = #{movieId}
+    </select>
+</mapper>
