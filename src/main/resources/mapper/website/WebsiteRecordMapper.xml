@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.framework.dao.website.WebsiteRecordMapper">
+    <resultMap id="BaseResultMap" type="com.framework.entity.website.WebsiteRecord">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="website_name" jdbcType="VARCHAR" property="websiteName"/>
+        <result column="website_url" jdbcType="VARCHAR" property="websiteUrl"/>
+        <result column="website_icon" jdbcType="VARCHAR" property="websiteIcon"/>
+        <result column="website_type" jdbcType="VARCHAR" property="websiteType"/>
+        <result column="open_target" jdbcType="VARCHAR" property="openTarget"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, website_name, website_url, website_icon, website_type, open_target
+    </sql>
+    
+</mapper>
