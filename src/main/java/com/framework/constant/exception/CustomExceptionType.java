@@ -13,12 +13,17 @@ public enum CustomExceptionType {
     /**
      * 业务错误
      */
-    SERVICE_ERROR(400, "业务错误"),
+    SERVICE_ERROR(400, "Business Errors."),
+
+    /**
+     * 业务错误
+     */
+    UNAUTH_ERROR(403, "User is not logged in."),
 
     /**
      * 系统报错
      */
-    SYSTEM_ERROR(500, "系统错误");
+    SYSTEM_ERROR(500, "System Errors.");
     
     private Integer code;
     

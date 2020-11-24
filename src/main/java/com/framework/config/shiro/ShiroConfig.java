@@ -1,5 +1,6 @@
 package com.framework.config.shiro;
 
+import com.framework.authentication.CustomFormAuthenticationFilter;
 import com.framework.authentication.CustomSessionManager;
 import com.framework.authentication.CustomShiroRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -18,6 +19,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -48,6 +51,10 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
+        //增加自定义过滤
+        Map<String, Filter> filters = new HashMap<>();
+        filters.put("admin", new CustomFormAuthenticationFilter());
+        shiroFilterFactoryBean.setFilters(filters);
         // 过滤器链定义映射
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 
@@ -57,6 +64,7 @@ public class ShiroConfig {
          * */
         filterChainDefinitionMap.put("/auth/login", "anon");
         filterChainDefinitionMap.put("/public/**", "anon");
+        filterChainDefinitionMap.put("/auth/userInfo", "anon");
         // 配置不会被拦截的链接 顺序判断，因为前端模板采用了thymeleaf，这里不能直接使用 ("/static/**", "anon")来配置匿名访问，必须配置到每个静态目录
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
@@ -64,7 +72,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/html/**", "anon");
         // 所有url都必须认证通过才可以访问
-        filterChainDefinitionMap.put("/**", "authc");
+        filterChainDefinitionMap.put("/**", "admin");
 
         // 配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了, 位置放在 anon、authc下面
         filterChainDefinitionMap.put("/auth/logout", "logout");

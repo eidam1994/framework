@@ -40,10 +40,10 @@ public class LoginController {
         String username = user.getUsername();
         String password = user.getPassword();
         if (StringUtils.isBlank(username)) {
-            return Result.error("用户名不能为空");
+            return Result.error("Username cannot be empty.");
         }
         if (StringUtils.isBlank(password)) {
-            return Result.error("密码不能为空");
+            return Result.error("Password cannot be empty.");
         }
         SysUser sysUser = sysUserService.login(username, password);
         // 登录成功返回用户信息
@@ -66,7 +66,7 @@ public class LoginController {
      */
     @RequestMapping("/unAuth")
     public Result unAuth() {
-        return Result.error("用户未登录");
+        return Result.error("User is not logged in.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class LoginController {
      */
     @RequestMapping("/unauthorized")
     public Result unauthorized() {
-        return Result.error("用户未授权");
+        return Result.error("User is not authorized.");
     }
 
     /**
@@ -86,7 +86,7 @@ public class LoginController {
     public Result getUserInfo() {
         SysUser userInfo = UserInfoUtils.getUserInfo();
         if (Objects.isNull(userInfo)) {
-            return Result.error("用户未登录");
+            return Result.error("User is not logged in.");
         } else {
             return Result.success(userInfo);
         }

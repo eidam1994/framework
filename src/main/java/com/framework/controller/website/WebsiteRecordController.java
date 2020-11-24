@@ -25,23 +25,23 @@ public class WebsiteRecordController {
         return Result.success(websiteRecords);
     }
     
-    @PostMapping("/public/v1/websites")
+    @PostMapping("/v1/websites")
     public Result saveWebsite(WebsiteRecord websiteRecord) {
         Boolean isSuccess = websiteRecordService.saveWebsiteRecord(websiteRecord);
         if (isSuccess) {
             return Result.success();
         } else {
-            return Result.error("保存失败");
+            return Result.error("Saving Failure.");
         }
     }
     
-    @DeleteMapping("/public/v1/{id}/websites")
+    @DeleteMapping("/v1/{id}/websites")
     public Result deleteWebsite(@PathVariable String id) {
         Boolean isSuccess = websiteRecordService.deleteWebsiteRecord(id);
         if (isSuccess) {
             return Result.success();
         } else {
-            return Result.error("删除失败");
+            return Result.error("Deletion Failure.");
         }
     }
 }
