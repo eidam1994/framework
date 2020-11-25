@@ -5,10 +5,7 @@ import com.framework.service.authentication.ISysMenuService;
 import com.framework.service.authentication.ISysRoleService;
 import com.framework.service.authentication.ISysUserService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -65,6 +62,9 @@ public class CustomShiroRealm extends AuthorizingRealm {
         String userName = (String) token.getPrincipal();
         // 通过username从数据库中查找 User对象.
         SysUser user = userService.findByUsername(userName);
+        if (user == null) {
+            throw new UnknownAccountException();
+        }
         return new SimpleAuthenticationInfo(
                 // 这里传入的是user对象，比对的是用户名，直接传入用户名也没错，但是在授权部分就需要自己重新从数据库里取权限
                 user,

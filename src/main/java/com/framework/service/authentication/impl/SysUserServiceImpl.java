@@ -46,13 +46,13 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             user = (SysUser) currentUser.getPrincipals().getPrimaryPrincipal();
         } catch (UnknownAccountException e) {
             log.error("账号不存在:");
-            throw new CustomException(CustomExceptionType.SERVICE_ERROR, "用户不存在");
+            throw new CustomException(CustomExceptionType.SERVICE_ERROR, "User does not exist.");
         } catch (IncorrectCredentialsException e) {
             log.error("密码错误:");
-            throw new CustomException(CustomExceptionType.SERVICE_ERROR, "密码错误");
+            throw new CustomException(CustomExceptionType.SERVICE_ERROR, "The password is incorrect.");
         } catch (AuthenticationException e) {
             log.error("身份验证异常:", e);
-            throw new CustomException(CustomExceptionType.SERVICE_ERROR, "登陆失败");
+            throw new CustomException(CustomExceptionType.SERVICE_ERROR, "System Login Exception.");
         }
         return user;
     }

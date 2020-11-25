@@ -86,7 +86,7 @@ public class LoginController {
     public Result getUserInfo() {
         SysUser userInfo = UserInfoUtils.getUserInfo();
         if (Objects.isNull(userInfo)) {
-            return Result.error("User is not logged in.");
+            return Result.error(new CustomException(CustomExceptionType.UNAUTH_ERROR));
         } else {
             return Result.success(userInfo);
         }

@@ -64,7 +64,6 @@ public class ShiroConfig {
          * */
         filterChainDefinitionMap.put("/auth/login", "anon");
         filterChainDefinitionMap.put("/public/**", "anon");
-        filterChainDefinitionMap.put("/auth/userInfo", "anon");
         // 配置不会被拦截的链接 顺序判断，因为前端模板采用了thymeleaf，这里不能直接使用 ("/static/**", "anon")来配置匿名访问，必须配置到每个静态目录
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
