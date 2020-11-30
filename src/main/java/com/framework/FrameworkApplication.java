@@ -11,7 +11,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @author Admin
  */
 @EnableCaching
-//@EnableScheduling
+@EnableScheduling
 @SpringBootApplication
 @MapperScan(basePackages = {"com.framework.dao"})
 public class FrameworkApplication {
