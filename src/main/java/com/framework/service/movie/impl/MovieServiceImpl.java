@@ -43,7 +43,7 @@ public class MovieServiceImpl extends ServiceImpl<MovieMapper, Movie> implements
         // 获取爬取电影时间戳
         CodeValue lastMovieDate = codeValueMapper.selectValueByCode("LAST_MOVIE_DATE");
         for (int i = 1; i < Integer.MAX_VALUE; i++) {
-            String url = "https://www.pianku.tv/mv/------" + i + ".html";
+            String url = "https://www.pianku.li/mv/------" + i + ".html";
             Connection con = Jsoup.connect(url).userAgent(
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36")
                     .timeout(30000);
