@@ -42,5 +42,10 @@ public class SysUser implements Serializable {
      */
     private Date updateTime;
 
+    /**
+     * 电话号码
+     */
+    private String phoneNumber;
+    
     private static final long serialVersionUID = 1L;
 }
