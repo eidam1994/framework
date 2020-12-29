@@ -6,6 +6,7 @@ import com.framework.entity.authentication.SysUser;
 import com.framework.entity.movie.Movie;
 import com.framework.service.authentication.ISysUserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -26,6 +27,11 @@ public class SystemController {
     public Result getAllUsers() {
         List<SysUser> userList = userService.list();
         return Result.success(userList);
+    }
+    
+    @PostMapping("/v1/users/password")
+    public Result updatePassword(SysUser sysUser) {
+        return userService.updatePassword(sysUser);
     }
     
 }

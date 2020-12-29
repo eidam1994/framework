@@ -1,6 +1,7 @@
 package com.framework.service.authentication;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.framework.constant.response.Result;
 import com.framework.entity.authentication.SysUser;
 
 /**
@@ -29,5 +30,12 @@ public interface ISysUserService extends IService<SysUser> {
      * 登出系统
      */
     void logout();
+
+    /**
+     * 修改密码
+     * @param sysUser
+     * @return
+     */
+    Result updatePassword(SysUser sysUser);
     
 }
