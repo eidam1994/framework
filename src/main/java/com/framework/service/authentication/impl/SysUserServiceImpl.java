@@ -76,4 +76,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             return Result.error("Change Password Failure.");
         }
     }
+
+    @Override
+    public Result saveNewUser(SysUser sysUser) {
+        sysUser.setPassword(new SimpleHash("md5", sysUser.getPassword(), ByteSource.Util.bytes(sysUser.getUsername()), 2).toHex());
+        if (sysUserMapper.insert(sysUser) > 0) {
+            return Result.success();
+        } else {
+            return Result.error("Add User Failure");
+        }
+    }
 }

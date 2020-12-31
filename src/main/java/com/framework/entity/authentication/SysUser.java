@@ -3,6 +3,8 @@ package com.framework.entity.authentication;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -35,11 +37,13 @@ public class SysUser implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 修改时间
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
@@ -48,4 +52,16 @@ public class SysUser implements Serializable {
     private String phoneNumber;
     
     private static final long serialVersionUID = 1L;
+
+    @Override
+    public boolean equals(Object obj) {
+        SysUser u = (SysUser) obj;
+        return username.equals(u.username);
+    }
+
+    @Override
+    public int hashCode() {
+        String in = username;
+        return in.hashCode();
+    }
 }

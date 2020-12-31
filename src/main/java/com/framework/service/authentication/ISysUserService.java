@@ -37,5 +37,12 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      */
     Result updatePassword(SysUser sysUser);
+
+    /**
+     * 新增用户
+     * @param sysUser
+     * @return
+     */
+    Result saveNewUser(SysUser sysUser);
     
 }
