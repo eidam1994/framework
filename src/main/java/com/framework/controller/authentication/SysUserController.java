@@ -1,10 +1,9 @@
 package com.framework.controller.authentication;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.framework.constant.response.Result;
 import com.framework.entity.authentication.SysUser;
-import com.framework.pageDto.UserPageDTO;
+import com.framework.pageDto.authentication.UserPageDTO;
 import com.framework.service.authentication.ISysUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
