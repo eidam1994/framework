@@ -38,6 +38,6 @@ public interface ISysUserService extends IService<SysUser> {
      * @param sysUser
      * @return
      */
-    Result saveNewUser(SysUser sysUser);
+    Result saveUser(SysUser sysUser);
     
 }

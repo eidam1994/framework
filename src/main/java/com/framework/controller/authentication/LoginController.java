@@ -7,6 +7,7 @@ import com.framework.entity.authentication.SysUser;
 import com.framework.exception.CustomException;
 import com.framework.service.authentication.ISysUserService;
 import com.framework.utils.UserInfoUtils;
+import com.framework.vo.UserInfoVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -35,15 +36,15 @@ public class LoginController {
     @PostMapping("/login")
     public Result login(@RequestBody SysUser user) {
         log.info("————————进入登录————————");
-        String username = user.getUsername();
+        String loginName = user.getLoginName();
         String password = user.getPassword();
-        if (StringUtils.isBlank(username)) {
+        if (StringUtils.isBlank(loginName)) {
             return Result.error("用户名不能为空");
         }
         if (StringUtils.isBlank(password)) {
             return Result.error("密码不能为空");
         }
-        return sysUserService.doLogin(username, password);
+        return sysUserService.doLogin(loginName, password);
     }
 
     @GetMapping("/isLogin")
@@ -73,6 +74,11 @@ public class LoginController {
     @GetMapping("/userInfo")
     public Result getUserInfo() {
         // 获取当前会话账号id, 并转化为`String`类型
-        return Result.success(UserInfoUtils.getUserInfo());
+        UserInfoVO userInfo = UserInfoUtils.getUserInfo();
+        if (userInfo != null) {
+            return Result.success(userInfo);
+        } else {
+            return Result.error(new CustomException(CustomExceptionType.UNAUTH_ERROR));
+        }
     }
 }

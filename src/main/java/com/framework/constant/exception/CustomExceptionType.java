@@ -11,19 +11,19 @@ import lombok.Getter;
 public enum CustomExceptionType {
 
     /**
-     * 业务错误
-     */
-    SERVICE_ERROR(400, "Business Errors."),
-
-    /**
-     * 业务错误
-     */
-    UNAUTH_ERROR(403, "User is not logged in."),
-
-    /**
      * 系统报错
      */
-    SYSTEM_ERROR(500, "System Errors.");
+    SYSTEM_ERROR(500, "系统错误"),
+
+    /**
+     * 业务错误
+     */
+    SERVICE_ERROR(501, "业务逻辑错误"),
+
+    /**
+     * 未登录错误
+     */
+    UNAUTH_ERROR(502, "账号未登录");
     
     private Integer code;
     

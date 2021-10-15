@@ -63,16 +63,6 @@ public class SystemController {
         return userService.updatePassword(sysUser);
     }
 
-    /**
-     * 新增用户
-     *
-     * @param sysUser
-     * @return
-     */
-    @PostMapping("/v1/users")
-    public Result addUser(@RequestBody SysUser sysUser) {
-        return userService.saveNewUser(sysUser);
-    }
 
     /**
      * 新增角色

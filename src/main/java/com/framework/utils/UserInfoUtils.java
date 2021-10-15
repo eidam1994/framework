@@ -1,5 +1,6 @@
 package com.framework.utils;
 
+import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.stp.StpUtil;
 import com.framework.entity.authentication.SysUser;
 import com.framework.service.authentication.impl.SysUserServiceImpl;
@@ -18,12 +19,16 @@ public class UserInfoUtils {
      * @return
      */
     public static UserInfoVO getUserInfo() {
-        long id = StpUtil.getLoginIdAsLong();
-        SysUserServiceImpl userService = SpringUtil.getBean("sysUserServiceImpl", SysUserServiceImpl.class);
-        SysUser user = userService.getById(id);
-        UserInfoVO userInfoVO = new UserInfoVO();
-        BeanUtils.copyProperties(user, userInfoVO);
-        return userInfoVO;
+        try {
+            long id = StpUtil.getLoginIdAsLong();
+            SysUserServiceImpl userService = SpringUtil.getBean("sysUserServiceImpl", SysUserServiceImpl.class);
+            SysUser user = userService.getById(id);
+            UserInfoVO userInfoVO = new UserInfoVO();
+            BeanUtils.copyProperties(user, userInfoVO);
+            return userInfoVO;
+        } catch (NotLoginException e) {
+            return null;
+        }
     }
     
 }

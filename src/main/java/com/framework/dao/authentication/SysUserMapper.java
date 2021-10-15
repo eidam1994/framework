@@ -10,9 +10,9 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 
     /**
      * 根据用户名查询用户信息
-     * @param username
+     * @param loginName
      * @return
      */
-    SysUser findByUsername(String username);
+    SysUser findByLoginName(String loginName);
     
 }

@@ -21,6 +21,11 @@ public class SysUser implements Serializable {
     private Long id;
 
     /**
+     * 登录名
+     */
+    private String loginName;
+
+    /**
      * 用户名
      */
     private String username;
@@ -59,12 +64,12 @@ public class SysUser implements Serializable {
     @Override
     public boolean equals(Object obj) {
         SysUser u = (SysUser) obj;
-        return username.equals(u.username);
+        return loginName.equals(u.loginName);
     }
 
     @Override
     public int hashCode() {
-        String in = username;
+        String in = loginName;
         return in.hashCode();
     }
 }
