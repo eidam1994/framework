@@ -40,7 +40,7 @@
         </Root>
 
         <!--spring日志-->
-        <Logger name="org.springframework" level="info"/>
+        <Logger name="org.springframework" level="debug"/>
         <!-- mybatis日志 -->
         <Logger name="com.framework.dao" level="debug"/>
     </Loggers>

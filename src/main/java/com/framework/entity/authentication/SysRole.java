@@ -18,7 +18,7 @@ public class SysRole implements Serializable {
     /**
      * 角色id
      */
-    private Long id;
+    private String id;
 
     /**
      * 角色名称

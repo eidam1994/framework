@@ -62,7 +62,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public Result saveUser(SysUser sysUser) {
-        Long id = sysUser.getId();
+        String id = sysUser.getId();
         // 判断登录名是否重复
         QueryWrapper<SysUser> idWrapper = new QueryWrapper<>();
         idWrapper.eq("login_name", sysUser.getLoginName());
