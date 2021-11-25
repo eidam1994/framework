@@ -15,12 +15,12 @@ public class SysRoleMenu implements Serializable {
     /**
      * 角色id
      */
-    private Long roleId;
+    private String roleId;
 
     /**
      * 菜单id
      */
-    private Long menuId;
+    private String menuId;
 
     private static final long serialVersionUID = 1L;
 }

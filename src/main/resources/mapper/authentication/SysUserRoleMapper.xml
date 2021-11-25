@@ -12,5 +12,9 @@
     <select id="selectUsersByRoleId" resultType="java.lang.String">
         select user_id from sys_user_role where role_id = #{roleId}
     </select>
-    
+
+    <select id="selectRolesByUserId" resultType="java.lang.String">
+        select role_id from sys_user_role where user_id = #{userId}
+    </select>
+
 </mapper>

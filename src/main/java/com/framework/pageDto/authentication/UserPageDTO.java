@@ -1,11 +1,12 @@
 package com.framework.pageDto.authentication;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.framework.constant.common.PageEntity;
 import com.framework.entity.authentication.SysUser;
 import lombok.Data;
 
 @Data
-public class UserPageDTO extends Page<SysUser> {
+public class UserPageDTO extends PageEntity {
 
     /**
      * 登录名

@@ -30,19 +30,8 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
     }
 
     @Override
-    public Result updateUsersOfRole(String roleId, String userIds) {
-        String[] users = userIds.split(",");
-        QueryWrapper<SysUserRole> wrapper = new QueryWrapper<>();
-        wrapper.eq("role_id", roleId);
-        userRoleMapper.delete(wrapper);
-        if (StringUtils.isNotEmpty(userIds)) {
-            for (String user : users) {
-                SysUserRole newUserRole = new SysUserRole();
-                newUserRole.setRoleId(Long.valueOf(roleId));
-                newUserRole.setUserId(Long.valueOf(user));
-                userRoleMapper.insert(newUserRole);
-            }   
-        }
-        return Result.success();
+    public List<String> selectRolesByUserId(String userId) {
+        return userRoleMapper.selectRolesByUserId(userId);
     }
+
 }

@@ -2,21 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.framework.dao.authentication.SysUserMapper">
     <resultMap id="BaseResultMap" type="com.framework.entity.authentication.SysUser">
-        <id column="id" jdbcType="BIGINT" property="id" />
-        <result column="login_name" property="loginName" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="email" property="email" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="phone_number" property="phoneNumber" />
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="login_name" property="loginName"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="phone_number" property="phoneNumber"/>
     </resultMap>
     <sql id="Base_Column_List">
       id, login_name, username, password, email, create_time, update_time, phone_number
     </sql>
-  
+
     <select id="findByLoginName" resultMap="BaseResultMap">
-        select <include refid="Base_Column_List" /> from sys_user
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
         where login_name = #{loginName, jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectUserList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
+        <where>
+            <if test="loginName != null and loginName != ''">
+                and login_name like concat('%',#{loginName},'%')
+            </if>
+            <if test="username != null and username != ''">
+                and username like concat('%',#{username},'%')
+            </if>
+            <if test="phoneNumber != null and phoneNumber != ''">
+                and phone_number like concat('%',#{phoneNumber},'%')
+            </if>
+        </where>
     </select>
 </mapper>

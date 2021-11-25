@@ -21,11 +21,10 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
     List<String> selectUsersByRoleId(String roleId);
 
     /**
-     * 更新角色所拥有的用户
-     * @param roleId
-     * @param userIds
+     * 根据用户id查询角色集合
+     * @param userId
      * @return
      */
-    Result updateUsersOfRole(String roleId, String userIds);
-    
+    List<String> selectRolesByUserId(String userId);
+
 }

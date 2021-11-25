@@ -9,11 +9,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+
 @RestController
 @RequestMapping("/user")
 public class SysUserController {
 
-    @Autowired
+    @Resource
     private ISysUserService userService;
 
     /**
@@ -23,17 +25,7 @@ public class SysUserController {
      */
     @PostMapping("/list")
     public Result pageList(@RequestBody UserPageDTO pageDTO) {
-        QueryWrapper<SysUser> userQueryWrapper = new QueryWrapper<>();
-        if (StringUtils.isNotEmpty(pageDTO.getLoginName())) {
-            userQueryWrapper.like("login_name", pageDTO.getLoginName());
-        }
-        if (StringUtils.isNotEmpty(pageDTO.getUsername())) {
-            userQueryWrapper.like("username", pageDTO.getUsername());
-        }
-        if (StringUtils.isNotEmpty(pageDTO.getPhoneNumber())) {
-            userQueryWrapper.like("phone_number", pageDTO.getPhoneNumber());
-        }
-        return Result.success(userService.page(pageDTO, userQueryWrapper));
+        return userService.userList(pageDTO);
     }
 
     /**
@@ -50,5 +42,10 @@ public class SysUserController {
     public Result deleteUser(@PathVariable("id") String id) {
         userService.removeById(id);
         return Result.success();
+    }
+
+    @PostMapping("/register")
+    public Result register(@RequestBody SysUser user) {
+        return userService.register(user);
     }
 }

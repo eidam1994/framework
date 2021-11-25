@@ -8,11 +8,22 @@
         <result column="menu_code" property="menuCode"/>
         <result column="sort" property="sort"/>
         <result column="parent_id" property="parentId"/>
+        <result column="icon" property="icon"/>
+        <result column="path" property="path"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-      id, menu_name, menu_code, menu_type, sort, parent_id, create_time, update_time
+      id, menu_name, menu_code, menu_type, sort, parent_id, icon, path, create_time, update_time
     </sql>
-  
+
+    <select id="selectMenuList" resultMap="BaseResultMap">
+        select m.id, m.menu_name, m.menu_code, m.menu_type, m.sort, m.parent_id, m.icon, m.path
+        from sys_user u
+        right join sys_user_role ur on u.id = ur.user_id
+        right join sys_role_menu rm on ur.role_id = rm.role_id
+        right join sys_menu m on rm.menu_id = m.id
+        where u.id = #{userId, jdbcType=VARCHAR}
+    </select>
+    
 </mapper>

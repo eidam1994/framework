@@ -48,6 +48,16 @@ public class SysMenu implements Serializable {
     private String parentId;
 
     /**
+     * 图标
+     */
+    private String icon;
+
+    /**
+     * 组件路径
+     */
+    private String path;
+
+    /**
      * 创建时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")

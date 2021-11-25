@@ -2,6 +2,7 @@ package com.framework.entity.authentication;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -29,6 +30,12 @@ public class SysRole implements Serializable {
      * 角色描述
      */
     private String roleDesc;
+
+    /**
+     * 菜单权限id集合
+     */
+    @TableField(exist = false)
+    private List<String> menuIds;
 
     /**
      * 创建时间

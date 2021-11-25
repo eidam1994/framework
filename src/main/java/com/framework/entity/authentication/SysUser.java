@@ -2,12 +2,15 @@ package com.framework.entity.authentication;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.framework.constant.common.PageEntity;
 import lombok.Data;
+import org.springframework.data.annotation.Transient;
 
 /**
  * sys_menu
@@ -58,6 +61,12 @@ public class SysUser implements Serializable {
      * 电话号码
      */
     private String phoneNumber;
+
+    /**
+     * 角色集合
+     */
+    @TableField(exist = false)
+    private List<String> roleIds;
     
     private static final long serialVersionUID = 1L;
 

@@ -8,6 +8,8 @@ spring:
     username: root
     password: Zxy373161737!
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      max-lifetime: 60000
   redis:
     # Redis 数据库索引（默认为 0）
     database: 0
@@ -31,6 +33,11 @@ mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
   mapper-locations: classpath:mapper/**/*.xml
 
+# 分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+
 # Sa-Token配置
 sa-token:
   # token名称 (同时也是cookie名称)
@@ -47,5 +54,3 @@ sa-token:
   token-style: uuid
   # 是否输出操作日志
   is-log: false
-
-  

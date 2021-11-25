@@ -6,6 +6,9 @@ import com.framework.entity.authentication.SysRoleMenu;
 import com.framework.service.authentication.ISysRoleMenuService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.List;
+
 /**
  * @description:
  * @author: xingyuzhang
@@ -13,4 +16,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysRoleMenuServiceImpl extends ServiceImpl<SysRoleMenuMapper, SysRoleMenu> implements ISysRoleMenuService {
+
+    @Resource
+    private SysRoleMenuMapper roleMenuMapper;
+
+    @Override
+    public List<String> selectMenusByRole(String roleId) {
+        return roleMenuMapper.selectMenusByRole(roleId);
+    }
 }

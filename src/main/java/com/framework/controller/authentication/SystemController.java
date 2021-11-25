@@ -94,10 +94,5 @@ public class SystemController {
         userRoleList.put("selectedUsers", userIds);
         return Result.success(userRoleList);
     }
-    
-    @PutMapping("/v1/usersOfRole")
-    public Result updateUsersOfRole(String roleId,String userIds) {
-        return userRoleService.updateUsersOfRole(roleId, userIds);
-    }
 
 }

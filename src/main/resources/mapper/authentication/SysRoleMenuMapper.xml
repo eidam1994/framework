@@ -8,5 +8,9 @@
     <sql id="Base_Column_List">
       role_id, menu_id
     </sql>
+
+    <select id="selectMenusByRole" resultType="java.lang.String">
+        select menu_id from sys_role_menu where role_id = #{roleId}
+    </select>
   
 </mapper>

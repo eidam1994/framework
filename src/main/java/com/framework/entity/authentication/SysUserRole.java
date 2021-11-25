@@ -15,12 +15,12 @@ public class SysUserRole implements Serializable {
     /**
      * 用户id
      */
-    private Long userId;
+    private String userId;
 
     /**
      * 角色id
      */
-    private Long roleId;
+    private String roleId;
 
     private static final long serialVersionUID = 1L;
 }

@@ -1,11 +1,10 @@
 package com.framework.pageDto.authentication;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.framework.entity.authentication.SysRole;
+import com.framework.constant.common.PageEntity;
 import lombok.Data;
 
 @Data
-public class RolePageDTO extends Page<SysRole> {
+public class RolePageDTO extends PageEntity {
 
     /**
      * 角色名称
