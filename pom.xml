@@ -112,7 +112,14 @@
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-spring-boot-starter</artifactId>
-            <version>1.27.0</version>
+            <version>1.28.0</version>
+        </dependency>
+
+        <!-- okhttp -->
+        <dependency>
+            <groupId>com.ejlchina</groupId>
+            <artifactId>okhttps-fastjson</artifactId>
+            <version>3.4.1</version>
         </dependency>
 
         <dependency>

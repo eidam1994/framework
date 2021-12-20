@@ -60,14 +60,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     @Override
     public Result userList(UserPageDTO pageDTO) {
-        PageHelper.startPage(pageDTO.getPageNum(), pageDTO.getPageSize());
+//        PageHelper.startPage(pageDTO.getPageNum(), pageDTO.getPageSize());
         List<SysUser> users = sysUserMapper.selectUserList(pageDTO);
         for (SysUser user : users) {
             List<String> roleIds = userRoleService.selectRolesByUserId(user.getId());
             user.setRoleIds(roleIds);
         }
-        PageInfo<SysUser> userPageInfo = new PageInfo<>(users);
-        return Result.success(userPageInfo);
+//        PageInfo<SysUser> userPageInfo = new PageInfo<>(users);
+        return Result.success(users);
     }
 
     @Override
