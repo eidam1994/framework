@@ -1,0 +1,4 @@
+#文件存储地址
+file:
+  upload:
+    path: C:\\webDisk\\

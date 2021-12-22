@@ -1,6 +1,7 @@
-package com.framework.entity.function;
+package com.framework.entity.function.disk;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -41,12 +42,18 @@ public class WebDisk implements Serializable {
     /**
      * 所属用户
      */
+    @TableField(updateStrategy = FieldStrategy.IGNORED)
     private String userId;
 
     /**
      * 上传人
      */
     private String uploadBy;
+
+    /**
+     * 文件MD5码
+     */
+    private String md5;
 
     /**
      * 创建时间(上传时间)

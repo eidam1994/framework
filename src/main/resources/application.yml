@@ -3,6 +3,8 @@ server:
   port: 8010
 # 数据库配置
 spring:
+  profiles:
+    active: pro
   datasource:
     url: jdbc:mysql://117.50.173.184:3523/framework?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
@@ -28,6 +30,14 @@ spring:
         max-idle: 8
         # 连接池中的最小空闲连接 默认 0
         min-idle: 0
+  servlet:
+    multipart:
+      enabled: true
+      # 10MB
+      max-file-size: 10485760
+      # 1000MB
+      max-request-size: 1048576000
+
 # mybatis配置
 mybatis-plus:
   # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
@@ -54,3 +64,5 @@ sa-token:
   token-style: uuid
   # 是否输出操作日志
   is-log: false
+
+

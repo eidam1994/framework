@@ -36,7 +36,7 @@
         <!-- 根日志设置 -->
         <Root level="info">
             <AppenderRef ref="CONSOLE" level="debug"/>
-            <AppenderRef ref="FILE-APPENDER" level="info"/>
+            <AppenderRef ref="FILE-APPENDER" level="debug"/>
         </Root>
 
         <!--spring日志-->

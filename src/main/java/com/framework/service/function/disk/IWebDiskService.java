@@ -1,9 +1,9 @@
-package com.framework.service.function;
+package com.framework.service.function.disk;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.framework.constant.response.Result;
-import com.framework.entity.function.WebDisk;
-import com.framework.pageDto.function.SearchPageDTO;
+import com.framework.entity.function.disk.WebDisk;
+import com.framework.dto.function.SearchPageDTO;
 
 public interface IWebDiskService extends IService<WebDisk> {
 

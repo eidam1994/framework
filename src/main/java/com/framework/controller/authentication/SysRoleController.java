@@ -4,11 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.framework.constant.response.Result;
 import com.framework.entity.authentication.SysRole;
 import com.framework.entity.authentication.SysRoleMenu;
-import com.framework.pageDto.authentication.RolePageDTO;
+import com.framework.dto.authentication.RolePageDTO;
 import com.framework.service.authentication.ISysRoleMenuService;
 import com.framework.service.authentication.ISysRoleService;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

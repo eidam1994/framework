@@ -2,7 +2,7 @@ package com.framework.dao.authentication;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.framework.entity.authentication.SysUser;
-import com.framework.pageDto.authentication.UserPageDTO;
+import com.framework.dto.authentication.UserPageDTO;
 
 import java.util.List;
 

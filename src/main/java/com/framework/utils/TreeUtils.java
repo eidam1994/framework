@@ -1,7 +1,6 @@
 package com.framework.utils;
 
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.Field;
@@ -19,7 +18,7 @@ public class TreeUtils {
      * @param clazz      集合元素类型
      * @return 转换后的树形结构
      */
-    public static <T> Collection<T> toTree(@NotNull Collection<T> collection, @NotNull Class<T> clazz) {
+    public static <T> Collection<T> toTree(Collection<T> collection, Class<T> clazz) {
         return toTree(collection, null, null, null, clazz);
     }
 
@@ -33,7 +32,7 @@ public class TreeUtils {
      * @param clazz      集合元素类型
      * @return           转换后的树形结构
      */
-    public static <T> Collection<T> toTree(@NotNull Collection<T> collection, String id, String parent, String children, @NotNull Class<T> clazz) {
+    public static <T> Collection<T> toTree(Collection<T> collection, String id, String parent, String children, Class<T> clazz) {
         try {
             if (collection == null || collection.isEmpty()) return null;// 如果目标集合为空,直接返回一个空树
             if (StringUtils.isEmpty(id)) id = "id";                     // 如果被依赖字段名称为空则默认为id
@@ -114,7 +113,7 @@ public class TreeUtils {
      * @param parentField   父节点字段
      * @param childrenField 字节点字段
      */
-    private static <T> void addChild(@NotNull T node, @NotNull Collection<T> collection, @NotNull Field idField, @NotNull Field parentField, @NotNull Field childrenField) throws IllegalAccessException {
+    private static <T> void addChild( T node,  Collection<T> collection,  Field idField,  Field parentField,  Field childrenField) throws IllegalAccessException {
         Object id = idField.get(node);
         Collection<T> children = (Collection<T>) childrenField.get(node);
         // 如果子节点的集合为 null, 初始化孩子集合

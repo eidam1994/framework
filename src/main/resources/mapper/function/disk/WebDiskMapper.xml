@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.framework.dao.function.WebDiskMapper">
-    <resultMap id="BaseResultMap" type="com.framework.entity.function.WebDisk">
+<mapper namespace="com.framework.dao.function.disk.WebDiskMapper">
+    <resultMap id="BaseResultMap" type="com.framework.entity.function.disk.WebDisk">
         <id column="id" property="id"/>
         <result column="file_name" property="fileName"/>
         <result column="file_size" property="fileSize"/>
@@ -9,18 +9,20 @@
         <result column="remark" property="remark"/>
         <result column="user_id" property="userId"/>
         <result column="upload_by" property="uploadBy"/>
+        <result column="md5" property="md5"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id, file_name, file_size, storage_path, remark, user_id, upload_by, create_time, update_time
+        id, file_name, concat(convert(file_size / 1024 / 1024, decimal(10,2)), 'MB') as file_size,
+        storage_path, remark, case when user_id is null then 0 else 1 end as user_id, upload_by, md5, create_time, update_time
     </sql>
 
     <select id="selectWebDiskList" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from web_disk
-        where user_id = #{userId, jdbcType=VARCHAR} and user_id is null
+        where (user_id = #{userId, jdbcType=VARCHAR} or user_id is null)
         <if test="searchContent != null and searchContent != ''">
             and (file_name like concat('%',#{searchContent},'%') or remark like concat('%',#{searchContent},'%'))
         </if>

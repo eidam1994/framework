@@ -1,4 +1,4 @@
-package com.framework.pageDto.authentication;
+package com.framework.dto.authentication;
 
 import com.framework.constant.common.PageEntity;
 import lombok.Data;

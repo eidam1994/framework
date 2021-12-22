@@ -1,4 +1,4 @@
-package com.framework.pageDto.function;
+package com.framework.dto.function;
 
 import com.framework.constant.common.PageEntity;
 import lombok.Data;

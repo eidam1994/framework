@@ -1,11 +1,11 @@
-package com.framework.service.function.impl;
+package com.framework.service.function.disk.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.framework.constant.response.Result;
-import com.framework.dao.function.WebDiskMapper;
-import com.framework.entity.function.WebDisk;
-import com.framework.pageDto.function.SearchPageDTO;
-import com.framework.service.function.IWebDiskService;
+import com.framework.dao.function.disk.WebDiskMapper;
+import com.framework.entity.function.disk.WebDisk;
+import com.framework.dto.function.SearchPageDTO;
+import com.framework.service.function.disk.IWebDiskService;
 import com.framework.utils.UserInfoUtils;
 import com.framework.vo.UserInfoVO;
 import com.github.pagehelper.PageHelper;

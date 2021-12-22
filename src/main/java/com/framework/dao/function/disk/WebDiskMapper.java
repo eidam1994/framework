@@ -1,8 +1,8 @@
-package com.framework.dao.function;
+package com.framework.dao.function.disk;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.framework.entity.function.WebDisk;
-import com.framework.pageDto.function.SearchPageDTO;
+import com.framework.entity.function.disk.WebDisk;
+import com.framework.dto.function.SearchPageDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

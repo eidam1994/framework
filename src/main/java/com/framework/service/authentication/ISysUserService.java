@@ -3,7 +3,7 @@ package com.framework.service.authentication;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.framework.constant.response.Result;
 import com.framework.entity.authentication.SysUser;
-import com.framework.pageDto.authentication.UserPageDTO;
+import com.framework.dto.authentication.UserPageDTO;
 
 /**
  * @description:

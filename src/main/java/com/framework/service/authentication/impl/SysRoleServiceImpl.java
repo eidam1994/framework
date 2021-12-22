@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.framework.constant.response.Result;
 import com.framework.dao.authentication.SysRoleMapper;
 import com.framework.entity.authentication.SysRole;
-import com.framework.pageDto.authentication.RolePageDTO;
+import com.framework.dto.authentication.RolePageDTO;
 import com.framework.service.authentication.ISysRoleMenuService;
 import com.framework.service.authentication.ISysRoleService;
 import com.github.pagehelper.PageHelper;
