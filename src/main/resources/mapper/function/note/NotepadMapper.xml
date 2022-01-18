@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.framework.dao.function.note.NotepadMapper">
+    <resultMap id="BaseResultMap" type="com.framework.entity.function.note.Notepad">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="tags" property="tags"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, title, content, tags, create_time, update_time, user_id
+    </sql>
+
+    <select id="selectNotepadList" resultType="com.framework.vo.NotepadVO">
+        select id, title, substring(content, 1, 40) as content, update_time from notepad
+        where user_id = #{userId, jdbcType=VARCHAR}
+        <if test="tags != null and tags.size > 0">
+            and
+            <foreach collection="tags" item="item" separator="or" open="(" close=")">
+                tags like concat('%',#{item},'%')
+            </foreach>
+        </if>
+        order by update_time desc, create_time desc
+    </select>
+
+    <select id="getTagsOptions" resultType="java.lang.String">
+        select distinct tags from notepad where user_id = #{userId, jdbcType=VARCHAR}
+    </select>
+    
+</mapper>

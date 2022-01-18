@@ -1,7 +1,6 @@
-package com.framework.entity.function.disk;
+package com.framework.entity.function.note;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -10,8 +9,11 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 记事本
+ */
 @Data
-public class WebDisk {
+public class Notepad {
 
     /**
      * 主键ID
@@ -20,40 +22,19 @@ public class WebDisk {
     private String id;
 
     /**
-     * 文件名
+     * 标题
      */
-    private String fileName;
+    private String title;
 
     /**
-     * 文件大小
+     * 记录内容
      */
-    private String fileSize;
+    private String content;
 
     /**
-     * 存储路径
+     * 标签
      */
-    private String storagePath;
-
-    /**
-     * 备注
-     */
-    private String remark;
-
-    /**
-     * 所属用户
-     */
-    @TableField(updateStrategy = FieldStrategy.IGNORED)
-    private String userId;
-
-    /**
-     * 上传人
-     */
-    private String uploadBy;
-
-    /**
-     * 文件MD5码
-     */
-    private String md5;
+    private String tags;
 
     /**
      * 创建时间(上传时间)
@@ -68,5 +49,11 @@ public class WebDisk {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    /**
+     * 所属人ID
+     */
+    @TableField(fill = FieldFill.INSERT)
+    private String userId;
 
 }
