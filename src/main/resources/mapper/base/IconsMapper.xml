@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.framework.dao.base.IconsMapper">
+    <resultMap id="BaseResultMap" type="com.framework.entity.base.Icons">
+        <id column="id" property="id"/>
+        <result column="icon_name" property="iconName"/>
+        <result column="source" property="source"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, icon_name, source
+    </sql>
+    
+</mapper>

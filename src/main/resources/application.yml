@@ -1,10 +1,10 @@
 # 启动端口
 server:
-  port: 8010
+  port: 5009
 # 数据库配置
 spring:
   profiles:
-    active: pro
+    active: dev
   datasource:
     url: jdbc:mysql://117.50.173.184:3523/framework?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
@@ -37,6 +37,7 @@ spring:
       max-file-size: 10485760
       # 1000MB
       max-request-size: 1048576000
+
 
 # mybatis配置
 mybatis-plus:
